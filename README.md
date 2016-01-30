@@ -26,3 +26,13 @@ Run the app using:
 ```
 python app.py
 ```
+
+## Measurement archiving
+
+To archive measurements and remove old entries, run:
+
+```
+python cleanup_measurements.py [numberOfDays]
+```
+
+If no number of days is specified, all entries older than 30 days are removed.
