@@ -55,9 +55,9 @@ def seed():
         measurement.systolic = random.randint(100, 130)
         measurement.diastolic = random.randint(60, 100)
         measurement.timestamp = datetime.datetime(
-            2015,
-            random.randint(1, 12),  # Monat
-            random.randint(1, 28),  # Tag (vereinfacht)
+            2016,
+            1,                      # Monat
+            random.randint(1, 31),  # Tag (vereinfacht)
             random.randint(0, 23),  # Stunde
             random.randint(0, 59)   # Minute
         )
@@ -69,9 +69,9 @@ def seed():
         measurement.user = user1 if random.randint(0, 1) == 0 else user2
         measurement.rate = random.randint(60, 120)
         measurement.timestamp = datetime.datetime(
-            2015,
-            random.randint(1, 12),  # Monat
-            random.randint(1, 28),  # Tag (vereinfacht)
+            2016,
+            1,                      # Monat
+            random.randint(1, 31),  # Tag (vereinfacht)
             random.randint(0, 23),  # Stunde
             random.randint(0, 59)   # Minute
         )

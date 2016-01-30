@@ -1,6 +1,6 @@
 from app import db
 from flask.ext.restful import Resource, marshal, reqparse, abort
-from models import Measurement, FrequencyMeasurement, User
+from models import Measurement, FrequencyMeasurement, User, FrequencyMeasurementDaily
 
 
 class MeasurementAPI(Resource):
@@ -10,13 +10,17 @@ class MeasurementAPI(Resource):
 
     def get(self, measurement_type):
         if measurement_type == 'rate':
-            result = FrequencyMeasurement.query.all()
+            current = FrequencyMeasurement.query.all()
+            archive = FrequencyMeasurementDaily.query.all()
+            return {
+                'current': [marshal(entry, entry.marshal_fields) for entry in current],
+                'archive': [marshal(entry, entry.marshal_fields) for entry in archive]
+            }
         elif measurement_type == 'pressure':
             result = Measurement.query.all()
+            return [marshal(entry, entry.marshal_fields) for entry in result]
         else:
             return abort(400)
-
-        return [marshal(entry, entry.marshal_fields) for entry in result]
 
     def post(self, measurement_type):
         if measurement_type == 'rate':
@@ -51,13 +55,17 @@ class MeasurementAPI(Resource):
 
 
 class UserMeasurementAPI(Resource):
-
     def get(self, user_id, measurement_type):
         if measurement_type == 'rate':
-            result = FrequencyMeasurement.query.filter(FrequencyMeasurement.user_id == user_id).all()
+            current = FrequencyMeasurement.query.filter(FrequencyMeasurement.user_id == user_id).all()
+            archive = FrequencyMeasurementDaily.query.filter(FrequencyMeasurementDaily.user_id == user_id).all()
+            return {
+                'current': [marshal(entry, entry.marshal_fields) for entry in current],
+                'archive': [marshal(entry, entry.marshal_fields) for entry in archive]
+            }
         elif measurement_type == 'pressure':
             result = Measurement.query.filter(Measurement.user_id == user_id).all()
+            return [marshal(entry, entry.marshal_fields) for entry in result]
         else:
             return abort(400)
 
-        return [marshal(entry, entry.marshal_fields) for entry in result]

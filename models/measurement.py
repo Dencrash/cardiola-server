@@ -67,4 +67,4 @@ class FrequencyMeasurementDaily(db.Model):
     }
 
     def __repr__(self):
-        return 'Measurement(%d, %d, %d) at %s' % (self.rate_avg, self.rate_max, self.rate_min, self.timestamp)
+        return 'Measurement(%d, %d, %d) at %s' % (self.rate_avg, self.rate_max, self.rate_min, self.date)
