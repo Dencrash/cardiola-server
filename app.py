@@ -1,4 +1,5 @@
-import sys, os
+import sys
+import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(basedir)
@@ -23,7 +24,8 @@ if __name__ == '__main__':
     api.add_resource(UserListAPI, '/api/users', endpoint='users')
     api.add_resource(PlanListAPI, '/api/user/<user_id>/plans', endpoint='user_plans')
     api.add_resource(PlanAPI, '/api/plan/<plan_id>', endpoint='plan')
-    api.add_resource(MeasurementAPI, '/api/measurements/<type>', endpoint='measurements')
-    api.add_resource(UserMeasurementAPI, '/api/user/<user_id>/measurements/<type>', endpoint='user_measurements')
+    api.add_resource(MeasurementAPI, '/api/measurements/<measurement_type>', endpoint='measurements')
+    api.add_resource(UserMeasurementAPI, '/api/user/<user_id>/measurements/<measurement_type>',
+                     endpoint='user_measurements')
 
     app.run(debug=True, host='0.0.0.0')

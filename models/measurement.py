@@ -11,12 +11,14 @@ class Measurement(db.Model):
     user = db.relationship('User', back_populates='measurements')
 
     pulse = db.Column(db.Integer)
-    pressure = db.Column(db.Integer)
+    systolic = db.Column(db.Integer)
+    diastolic = db.Column(db.Integer)
 
     marshal_fields = {
         'mid': fields.Integer(default=0),
         'pulse': fields.Integer,
-        'pressure': fields.Integer,
+        'systolic': fields.Integer,
+        'diastolic': fields.Integer,
         'timestamp': fields.String
     }
 

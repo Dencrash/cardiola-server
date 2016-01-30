@@ -17,7 +17,6 @@ class User(db.Model):
     blood_sugar = db.Column(db.Integer())
     angina = db.Column(db.Boolean())
 
-
     marshal_fields = {
         'uid': fields.Integer(default=0),
         'name': fields.String,
