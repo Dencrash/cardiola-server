@@ -4,7 +4,7 @@ This server is made for the cardiola-app, which is a prototyped medical app for 
 
 DISCLAIMER: The machine learning model that is used to predict, if a user suffers from a cardiac-disease is only a non-valitated prototype. While the model was trained on a real medical dataset, it is not validated by experts in any way and there is not enough available data for a high confidence in the model.
 
-The cardiola-app can be found here: ...
+The cardiola-app can be found here: https://github.com/janukobytsch/cardiola
 
 ## Setup
 
