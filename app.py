@@ -17,6 +17,7 @@ if __name__ == '__main__':
     from interfaces.user import UserAPI, UserListAPI, CurrentUserAPI
     from interfaces.plan import PlanAPI, PlanListAPI
     from interfaces.measurements import MeasurementAPI, UserMeasurementAPI
+    from interfaces.prediction import PredictionAPI
 
     api = Api(app, catch_all_404s=True)
     api.add_resource(CurrentUserAPI, '/api/user', endpoint='user')
@@ -27,5 +28,7 @@ if __name__ == '__main__':
     api.add_resource(MeasurementAPI, '/api/measurements/<measurement_type>', endpoint='measurements')
     api.add_resource(UserMeasurementAPI, '/api/user/<user_id>/measurements/<measurement_type>',
                      endpoint='user_measurements')
+    api.add_resource(PredictionAPI, '/api/prediction/<user_id>',
+                     endpoint='prediction')
 
     app.run(debug=True, host='0.0.0.0')

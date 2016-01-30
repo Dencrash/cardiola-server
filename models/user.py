@@ -12,9 +12,10 @@ class User(db.Model):
     measurements_frequency_daily = db.relationship('FrequencyMeasurementDaily', back_populates='user')
     plans = db.relationship('Plan', back_populates='user')
 
-    chest_pain = db.Column(db.Boolean())
-    eck_result = db.Column(db.Integer())
-    blood_sugar = db.Column(db.Integer())
+    age = db.Column(db.Integer())
+    chest_pain = db.Column(db.String())
+    eck_result = db.Column(db.String())
+    blood_sugar = db.Column(db.Boolean())
     angina = db.Column(db.Boolean())
 
     marshal_fields = {
