@@ -21,8 +21,8 @@ class User(db.Model):
     marshal_fields = {
         'uid': fields.Integer(default=0),
         'name': fields.String,
-        'chest_pain': fields.Boolean,
-        'eck_result': fields.Integer,
-        'blood_sugar': fields.Integer,
+        'chest_pain': fields.String,
+        'eck_result': fields.String,
+        'blood_sugar': fields.Boolean,
         'angina': fields.Boolean,
     }

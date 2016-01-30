@@ -22,6 +22,9 @@ class Measurement(db.Model):
         'timestamp': fields.String
     }
 
+    def __repr__(self):
+        return 'Measurement(%d, %d, %d) at %s' % (self.pulse, self.systolic, self.diastolic, self.timestamp)
+
 
 class FrequencyMeasurement(db.Model):
 
@@ -38,6 +41,9 @@ class FrequencyMeasurement(db.Model):
         'rate': fields.Integer,
         'timestamp': fields.String
     }
+
+    def __repr__(self):
+        return 'Measurement(%d) at %s' % (self.rate, self.timestamp)
 
 
 class FrequencyMeasurementDaily(db.Model):
@@ -59,3 +65,6 @@ class FrequencyMeasurementDaily(db.Model):
         'rate_avg': fields.Integer,
         'date': fields.String
     }
+
+    def __repr__(self):
+        return 'Measurement(%d, %d, %d) at %s' % (self.rate_avg, self.rate_max, self.rate_min, self.timestamp)
